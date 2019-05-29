@@ -8,15 +8,10 @@ public class Lutador extends Poderes{
     private String categoria;
     private String pais;
     private char sexo;
-
-     TodasAcoes action;
-    private double hp;
-    private Poderes poder;
+    private Acao acoes;
+    private Modalidade modalidade;
 
     public Lutador() {
-        action = new TodasAcoes();
-        hp = 1000.00;
-        poder = new Poderes();
 
     }
 
@@ -44,10 +39,6 @@ public class Lutador extends Poderes{
         this.sexo = sexo;
     }
 
-    public void recebeDano(double dano){
-        this.hp = this.hp-dano;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -56,12 +47,21 @@ public class Lutador extends Poderes{
         this.nome = nome;
     }
 
-    public double getHp() {
-        return hp;
+    public Modalidade getModalidade() {
+        return modalidade;
     }
 
-    public void setHp(double hp) {
-        this.hp = hp;
+    public void setModalidade(Modalidade modalidade) {
+        this.modalidade = modalidade;
     }
+
+    public Acao getAcoes() {
+        return acoes;
+    }
+
+    public void setAcoes(Acao acoes) {
+        this.acoes = acoes;
+    }
+
 
 }

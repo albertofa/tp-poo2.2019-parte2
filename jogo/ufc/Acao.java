@@ -1,44 +1,64 @@
 package jogo.ufc;
 
-import java.util.Random;
-
-
 public class Acao {
 
-	public int ataque;
-	public int soco;
-	public int chute;
-	public int poder;
-	public int defesa;
-	public double dano;
+    private int ataque;
+	private int soco;
+	private int chute;
+	private int poder;
+	private int defesa;
 
 	public Acao(){
-		dano = 2.0;
-		this.sortearValores();
+
 	}
-	
-	public void sortearValores(){
-		
-		Random sorteio = new Random();
-		
-		if(sorteio.nextInt(2)==0){
-			this.defesa=1;
-		}else{
-			this.ataque=1;
-			
-			if(sorteio.nextInt(3)==0){
-				this.chute=1;
-				this.soco=0;
-				this.poder=0;
-			}else if(sorteio.nextInt(3)==1){
-				this.chute=0;
-				this.soco=1;
-				this.poder=0;
-			}else{
-				this.chute=0;
-				this.soco=0;
-				this.poder=1;
-			}
-		}
-	}
+
+    public Acao(int ataque, int soco, int chute, int poder, int defesa){
+        this.ataque = ataque;
+        this.soco = soco;
+        this.chute = chute;
+        this.poder = poder;
+        this.defesa = defesa;
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
+    public int getSoco() {
+        return soco;
+    }
+
+    public void setSoco(int soco) {
+        this.soco = soco;
+    }
+
+    public int getChute() {
+        return chute;
+    }
+
+    public void setChute(int chute) {
+        this.chute = chute;
+    }
+
+    public int getPoder() {
+        return poder;
+    }
+
+    public void setPoder(int poder) {
+        this.poder = poder;
+    }
+
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
+
+
 }
