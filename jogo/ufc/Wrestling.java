@@ -1,24 +1,10 @@
 package jogo.ufc;
 
-public class Wrestling {
+public class Wrestling extends Modalidade{
 
-    private int usos;
-    private double dano;
-
-    public Wrestling(){
-        this.usos = 0;
-        this.dano = 200.0;
+    @Override
+    protected void setForca() {
+        forca = 3;
     }
 
-    public double getDano() {
-        return dano;
-    }
-
-    public int getUsos() {
-        return usos;
-    }
-
-    public void setUsos(int usos) {
-        this.usos = usos;
-    }
 }

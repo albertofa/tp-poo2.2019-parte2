@@ -5,19 +5,38 @@ package jogo.ufc;
 public class Lutador extends Poderes{
 
     private String nome;
-    public TodasAcoes action;
-    private double hp;
-    private Poderes poder;
+    private String categoria;
+    private String pais;
+    private char sexo;
+    private Acao acoes;
+    private Modalidade modalidade;
 
     public Lutador() {
-        action = new TodasAcoes();
-        hp = 1000.00;
-        poder = new Poderes();
 
     }
 
-    public void recebeDano(double dano){
-        this.hp = this.hp-dano;
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
     }
 
     public String getNome() {
@@ -28,12 +47,21 @@ public class Lutador extends Poderes{
         this.nome = nome;
     }
 
-    public double getHp() {
-        return hp;
+    public Modalidade getModalidade() {
+        return modalidade;
     }
 
-    public void setHp(double hp) {
-        this.hp = hp;
+    public void setModalidade(Modalidade modalidade) {
+        this.modalidade = modalidade;
     }
+
+    public Acao getAcoes() {
+        return acoes;
+    }
+
+    public void setAcoes(Acao acoes) {
+        this.acoes = acoes;
+    }
+
 
 }
