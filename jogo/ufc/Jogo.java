@@ -81,7 +81,7 @@ public class Jogo {
 
     }
 
-    public void start(){
+   /* public void start(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do seu lutador:");
         String input = scanner.nextLine();
@@ -100,7 +100,7 @@ public class Jogo {
         }
 
 
-    }
+    }*/
 
 
 

@@ -5,7 +5,11 @@ package jogo.ufc;
 public class Lutador extends Poderes{
 
     private String nome;
-    public TodasAcoes action;
+    private String categoria;
+    private String pais;
+    private char sexo;
+
+     TodasAcoes action;
     private double hp;
     private Poderes poder;
 
@@ -14,6 +18,30 @@ public class Lutador extends Poderes{
         hp = 1000.00;
         poder = new Poderes();
 
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
     }
 
     public void recebeDano(double dano){

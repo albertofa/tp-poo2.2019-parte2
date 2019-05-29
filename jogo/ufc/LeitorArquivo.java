@@ -1,25 +1,33 @@
 package jogo.ufc;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class LeitorArquivo {
 
-    FileReader fr;
+    private File file;
 
-    {
-        try {
-            fr = new FileReader("ligas/liga2010.txt");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    public Liga getLigaFromFile(String filePath){
+
+        Liga liga = new Liga();
+        return liga;
     }
 
     public void test() throws IOException {
-        int i;
-        while ((i=fr.read()) != -1) {
-            System.out.print((char) i);
+
+        this.file = new File("ligas/liga2010.txt");
+        Round round = new Round();
+
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+
+        String linha;
+        while ((linha = reader.readLine()) != null) {
+            String[] splitted = linha.split(";");
+
+            System.out.println("id luta:"+splitted[2]);
+            System.out.println("nome:"+splitted[3]);
+            System.out.println("categoria:"+splitted[4]);
+            System.out.println("pais:"+splitted[5]);
         }
     }
 }
+
