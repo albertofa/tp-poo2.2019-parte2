@@ -1,6 +1,6 @@
-package jogo.ufc;
+package src.negocio;
 
-import java.util.Scanner;
+import src.negocio.Liga;
 
 /* Classe que irá conter a execução do jogo, com seus lutadores e as regras de interação entre eles */
 public class Jogo {

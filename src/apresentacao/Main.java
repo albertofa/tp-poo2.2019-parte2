@@ -1,4 +1,6 @@
-package jogo.ufc;
+package src.apresentacao;
+
+import src.negocio.LeitorArquivo;
 
 import java.io.IOException;
 
@@ -9,7 +11,7 @@ public class Main {
 		//Jogo test = new Jogo();
 		LeitorArquivo a = new LeitorArquivo();
 		try {
-			a.test();
+			a.getLigaByFile("ligas/liga2010.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

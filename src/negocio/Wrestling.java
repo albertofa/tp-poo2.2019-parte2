@@ -1,4 +1,4 @@
-package jogo.ufc;
+package src.negocio;
 
 public class Wrestling extends Modalidade{
 

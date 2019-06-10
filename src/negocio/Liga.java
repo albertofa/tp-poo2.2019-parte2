@@ -1,4 +1,4 @@
-package jogo.ufc;
+package src.negocio;
 
 import java.util.*;
 
@@ -6,12 +6,21 @@ import java.util.*;
   selecionado 5 nomes aleatorios e atribuido a 10 lutadores*/
 public class Liga {
 
+    private int anoLiga;
     private ArrayList<Luta> lutas;
 
 
     public Liga() {
         lutas = new ArrayList<Luta>();
 
+    }
+
+    public int getAnoLiga() {
+        return anoLiga;
+    }
+
+    public void setAnoLiga(int anoLiga) {
+        this.anoLiga = anoLiga;
     }
 
     public Luta getLuta(int index){

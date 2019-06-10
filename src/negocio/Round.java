@@ -1,9 +1,10 @@
-package jogo.ufc;
+package src.negocio;
 
 /* Classe que representa um embate entre 2 lutadores, em relação ao
    arquivo .txt de ligas, cada instancia do objeto Round representa uma linha */
 public class Round {
 
+    private int idRound;
     private Lutador lutador1;
     private Lutador lutador2;
 
@@ -81,6 +82,14 @@ public class Round {
 
 
     //Getters e Setters
+
+    public int getIdRound() {
+        return idRound;
+    }
+
+    public void setIdRound(int idRound) {
+        this.idRound = idRound;
+    }
 
     public void setLutador1(Lutador lutador){
         this.lutador1 = lutador;

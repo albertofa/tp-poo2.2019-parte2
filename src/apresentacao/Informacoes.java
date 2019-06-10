@@ -1,4 +1,4 @@
-package jogo.ufc;
+package src.apresentacao;
 
 import java.util.Scanner;
 

@@ -1,12 +1,12 @@
-package jogo.ufc;
+package src.negocio;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 /*
  * Classe base para um objeto que irá interagir com o jogo
  */
 public class Lutador{
+
     private ArrayList<Modalidade> modalidadesRegistradas;
 
     private String nome;
@@ -47,6 +47,7 @@ public class Lutador{
         setModalideByForca(modalidade);
 
     }
+
 
     public void setModalideByForca(int forca){
         modalidade = modalidadesRegistradas.get(forca);
