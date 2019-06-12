@@ -1,6 +1,7 @@
 package src.apresentacao;
 
 import src.negocio.LeitorArquivo;
+import src.negocio.Liga;
 
 import java.io.IOException;
 
@@ -11,7 +12,8 @@ public class Main {
 		//Jogo test = new Jogo();
 		LeitorArquivo a = new LeitorArquivo();
 		try {
-			a.getLigaByFile("ligas/liga2011.txt");
+			a.inserirLigaBanco("ligas/liga2011.txt");
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class RoundDAO {
 
-    public boolean inserir(Round round, int idLuta, int anoLiga){
+    public static boolean inserir(Round round, int idLuta, int anoLiga){
 
         int valor = 0;
         try{
@@ -34,7 +34,7 @@ public class RoundDAO {
 
     }
 
-    public void deletar(Round round){
+    public static void deletar(Round round){
         try{
             Connection conexao = new Conexao().getConexao();
             PreparedStatement result=

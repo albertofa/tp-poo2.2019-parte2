@@ -15,6 +15,9 @@ public class Liga {
 
     }
 
+    public int size(){
+        return lutas.size();
+    }
     public int getAnoLiga() {
         return anoLiga;
     }

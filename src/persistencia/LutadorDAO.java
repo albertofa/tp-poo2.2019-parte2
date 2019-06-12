@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class LutadorDAO {
 
-    public boolean inserir(Lutador lutador){
+    public static boolean inserir(Lutador lutador){
 
         int valor = 0;
         try{
@@ -36,7 +36,7 @@ public class LutadorDAO {
 
     }
 
-    public void deletar(Lutador lutador){
+    public static void deletar(Lutador lutador){
         try{
             Connection conexao = new Conexao().getConexao();
             PreparedStatement result=

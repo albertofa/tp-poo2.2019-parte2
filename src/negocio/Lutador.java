@@ -1,5 +1,7 @@
 package src.negocio;
 
+import src.negocio.modalidade.*;
+
 import java.util.ArrayList;
 
 /*

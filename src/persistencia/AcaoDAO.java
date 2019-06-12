@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class AcaoDAO {
 
-    public boolean inserir(Acao acao, int idRound, int anoLiga, int idLuta, String nome){
+    public static boolean inserir(Acao acao, int idRound, int anoLiga, int idLuta, String nome){
 
         int valor = 0;
         try{
@@ -40,7 +40,7 @@ public class AcaoDAO {
 
     }
 
-    public void deletar(int idRound){
+    public static void deletar(int idRound){
         try{
             Connection conexao = new Conexao().getConexao();
             PreparedStatement result=

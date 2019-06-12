@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class LutaDAO {
 
-    public boolean inserir(Luta luta, int anoLiga){
+    public static boolean inserir(Luta luta, int anoLiga){
 
         int valor = 0;
         try{
@@ -33,7 +33,7 @@ public class LutaDAO {
 
     }
 
-    public void deletar(Luta luta){
+    public static void deletar(Luta luta){
         try{
             Connection conexao = new Conexao().getConexao();
             PreparedStatement result=

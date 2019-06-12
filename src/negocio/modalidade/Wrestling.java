@@ -1,4 +1,4 @@
-package src.negocio;
+package src.negocio.modalidade;
 
 public class Wrestling extends Modalidade{
 

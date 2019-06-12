@@ -57,7 +57,7 @@ public class LigaDAO {
         return livro;
     }*/
 
-    public boolean inserir(Liga liga){
+    public static boolean inserir(Liga liga){
 
         int valor = 0;
         try{
@@ -81,7 +81,7 @@ public class LigaDAO {
 
     }
 
-    public void deletar(Liga liga){
+    public static void deletar(Liga liga){
         try{
             Connection conexao = new Conexao().getConexao();
             PreparedStatement result=

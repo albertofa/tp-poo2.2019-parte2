@@ -69,10 +69,10 @@ public class Round {
 
     //Calcula quem ganhou o embate com base em qual lutador possui maior habilidade
     private void setPontosMaiorHabilidade(){
-        if (lutador1.getModalidade().forca == lutador2.getModalidade().forca) {
+        if (lutador1.getModalidade().getForca() == lutador2.getModalidade().getForca()) {
             pontosLutador1++;
             pontosLutador2++;
-        } else if (lutador1.getModalidade().forca > lutador2.getModalidade().forca) {
+        } else if (lutador1.getModalidade().getForca() > lutador2.getModalidade().getForca()) {
             pontosLutador1++;
         } else {
             pontosLutador2++;

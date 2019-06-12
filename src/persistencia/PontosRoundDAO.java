@@ -1,27 +1,25 @@
 package src.persistencia;
 
-import src.negocio.modalidade.Modalidade;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ModalidadeDAO {
+public class PontosRoundDAO {
 
-    public static boolean inserir(Modalidade modalidade, int idRound, String nome, int idLuta, int anoLiga){
+    public static boolean inserir(int pontos, int idRound, int anoLiga, int idLuta, String nome){
 
         int valor = 0;
         try{
             Connection conexao = new Conexao().getConexao();
 
-            PreparedStatement result =
-                    conexao.prepareStatement("insert into Modalidade(forca,Lutador_nome,Round_idRound,Round_idLuta,Round_anoLiga) values (?,?,?,?,?);");
+            PreparedStatement result = conexao.prepareStatement("insert into Pontos_Round(pontos,Round_idRound,Round_anoLiga,Round_idLuta,Lutador_nome) values (?,?,?,?,?);");
 
-            result.setInt(1, modalidade.getForca());
-            result.setString(2, nome);
-            result.setInt(3, idRound);
+            result.setInt(1, pontos);
+            result.setInt(2, idRound);
+            result.setInt(3, anoLiga);
             result.setInt(4, idLuta);
-            result.setInt(5, anoLiga);
+            result.setString(5, nome);
 
 
             valor = result.executeUpdate();
@@ -37,13 +35,13 @@ public class ModalidadeDAO {
 
     }
 
-    public static void deletar(int idRound){
+    public static void deletar(int idRound, int anoLiga, int idLuta, String nome){
         try{
             Connection conexao = new Conexao().getConexao();
             PreparedStatement result=
-                    conexao.prepareStatement("DELETE FROM Modalidade WHERE Lutador_idRound = ?;");
+                    conexao.prepareStatement("DELETE FROM Lutador WHERE nome = ?;");
 
-            result .setInt(1,idRound);
+            result.setString(1, nome);
             result.executeUpdate();
             conexao.close();
         }catch(Exception e){
