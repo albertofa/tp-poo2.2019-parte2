@@ -8,8 +8,13 @@ public class Round {
     private Lutador lutador1;
     private Lutador lutador2;
 
-    private int pontosLutador1 = 0;
-    private int pontosLutador2 = 0;
+    private int pontosLutador1;
+    private int pontosLutador2;
+
+    public Round(){
+        pontosLutador1 = 0;
+        pontosLutador2 = 0;
+    }
 
     //Retorna o Lutador que ficou com mais pontos no Round
     public Lutador getRoundResult(){

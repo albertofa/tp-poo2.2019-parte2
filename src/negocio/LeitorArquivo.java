@@ -16,10 +16,16 @@ public class LeitorArquivo {
 
 
     //Esse metodo recebe um objeto do tipo Round, calcula seus resultados e o insere no banco
-    /*public void inserirResultadosBanco(Luta luta){
+    public void inserirResultadosBanco(Round round, int anoLiga,int anoLuta){
 
+        System.out.println("Teste: "+round.getPontosLutador1()+"-"+round.getIdRound()+"-"+anoLiga+"-"+anoLuta+"-"+round.getlutador1().getNome());
+        round.getRoundResult();
+        System.out.println("Inserindo lutador1: "+round.getPontosLutador1()+"-"+round.getIdRound()+"-"+anoLiga+"-"+anoLuta+"-"+round.getlutador1().getNome());
+        PontosRoundDAO.inserir(round.getPontosLutador1(),round.getIdRound(),anoLiga,anoLuta,round.getlutador1().getNome());
+        System.out.println("Inserindo lutador2: "+round.getPontosLutador2()+"-"+round.getIdRound()+"-"+anoLiga+"-"+anoLuta+"-"+round.getlutador2().getNome());
+        PontosRoundDAO.inserir(round.getPontosLutador2(),round.getIdRound(),anoLiga,anoLuta,round.getlutador2().getNome());
 
-    }*/
+    }
 
     //Esse metodo recebe uma String com o caminho do  arquivo contendo a liga e insere seu conteudo no banco
     public void inserirLigaBanco(String path) throws IOException {
@@ -40,7 +46,7 @@ public class LeitorArquivo {
         String linha;
         while ((linha = reader.readLine()) != null) {
 
-            System.out.println("Linha arquivo puro: "+linha);
+            //System.out.println("Linha arquivo puro: "+linha);
             String[] splitted = linha.split(";");
 
             if(Integer.parseInt(splitted[2]) != controle){
@@ -52,12 +58,13 @@ public class LeitorArquivo {
 
             }
 
+            round = new Round();
             round.setIdRound(Integer.parseInt(splitted[1]));
             RoundDAO.inserir(round,luta.getIdLuta(),liga.getAnoLiga());
 
             acoes = new Acao(Integer.parseInt(splitted[8]), Integer.parseInt(splitted[9]),Integer.parseInt(splitted[10]),Integer.parseInt(splitted[11]),Integer.parseInt(splitted[7]));
             lutador = new Lutador(splitted[3],splitted[4],splitted[5],splitted[6],acoes,Integer.parseInt(splitted[12]));
-
+            round.setLutador1(lutador);
 
             LutadorDAO.inserir(lutador);
             AcaoDAO.inserir(acoes,round.getIdRound(),liga.getAnoLiga(),luta.getIdLuta(),lutador.getNome());
@@ -65,13 +72,14 @@ public class LeitorArquivo {
 
             acoes = new Acao(Integer.parseInt(splitted[18]), Integer.parseInt(splitted[19]),Integer.parseInt(splitted[20]),Integer.parseInt(splitted[21]),Integer.parseInt(splitted[17]));
             lutador = new Lutador(splitted[13],splitted[14],splitted[15],splitted[16],acoes,Integer.parseInt(splitted[22]));
+            round.setLutador2(lutador);
 
 
             LutadorDAO.inserir(lutador);
             AcaoDAO.inserir(acoes,round.getIdRound(),liga.getAnoLiga(),luta.getIdLuta(),lutador.getNome());
             ModalidadeDAO.inserir(lutador.getModalidade(),round.getIdRound(),lutador.getNome(),luta.getIdLuta(),liga.getAnoLiga());
 
-
+            inserirResultadosBanco(round,liga.getAnoLiga(),luta.getIdLuta());
         }
 
     }
