@@ -10,10 +10,10 @@ public class Conexao {
 
     //construtor
     public Conexao() {
-        this.banco = "pooteste";
+        this.banco = "pooTeste";
         this.host = "127.0.0.1";
         this.usuario = "root";
-        this.senha = "";
+        this.senha = "admin";
     }
 
     public Connection getConexao() {

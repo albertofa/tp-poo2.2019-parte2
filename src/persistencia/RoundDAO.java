@@ -8,17 +8,18 @@ import java.sql.SQLException;
 
 public class RoundDAO {
 
-    public boolean inserir(Round round, int idLuta){
+    public boolean inserir(Round round, int idLuta, int anoLiga){
 
         int valor = 0;
         try{
             Connection conexao = new Conexao().getConexao();
 
             PreparedStatement result =
-                    conexao.prepareStatement("insert into Round(idRound,Luta_idLuta) values (?,?);");
+                    conexao.prepareStatement("insert into Round(idRound,Luta_idLuta,Luta_anoLiga) values (?,?,?);");
 
             result.setInt(1, round.getIdRound());
             result.setInt(2, idLuta);
+            result.setInt(3, anoLiga);
 
             valor = result.executeUpdate();
             conexao.close();

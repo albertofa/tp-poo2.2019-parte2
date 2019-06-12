@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Luta {
 
     private int idLuta;
+    public ArrayList<Round> rounds = new ArrayList<Round>();
 
-    private ArrayList<Round> rounds = new ArrayList<Round>();
-
+    public Round getRound(int index){
+        return rounds.get(index);
+    }
     public void addRound(Round round){
         rounds.add(round);
     }
@@ -22,6 +24,10 @@ public class Luta {
 
     public ArrayList<Round> getRounds() {
         return rounds;
+    }
+
+    public int size(){
+        return rounds.size();
     }
 
 

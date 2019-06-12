@@ -84,7 +84,7 @@ public class Round {
     //Getters e Setters
 
     public int getIdRound() {
-        return idRound;
+        return this.idRound;
     }
 
     public void setIdRound(int idRound) {

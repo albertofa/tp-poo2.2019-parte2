@@ -8,17 +8,20 @@ import java.sql.SQLException;
 
 public class ModalidadeDAO {
 
-    public boolean inserir(Modalidade modalidade, int idRound){
+    public boolean inserir(Modalidade modalidade, int idRound, String nome, int idLuta, int anoLiga){
 
         int valor = 0;
         try{
             Connection conexao = new Conexao().getConexao();
 
             PreparedStatement result =
-                    conexao.prepareStatement("insert into Modalidade(Lutador_idRound,forca) values (?,?);");
+                    conexao.prepareStatement("insert into Modalidade(forca,Lutador_nome,Round_idRound,Round_idLuta,Round_anoLiga) values (?,?,?,?,?);");
 
-            result.setInt(1, idRound);
-            result.setInt(2, modalidade.getForca());
+            result.setInt(1, modalidade.getForca());
+            result.setString(2, nome);
+            result.setInt(3, idRound);
+            result.setInt(4, idLuta);
+            result.setInt(5, anoLiga);
 
 
             valor = result.executeUpdate();

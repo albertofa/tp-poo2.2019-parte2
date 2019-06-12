@@ -11,7 +11,7 @@ public class Main {
 		//Jogo test = new Jogo();
 		LeitorArquivo a = new LeitorArquivo();
 		try {
-			a.getLigaByFile("ligas/liga2010.txt");
+			a.getLigaByFile("ligas/liga2011.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

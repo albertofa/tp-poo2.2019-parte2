@@ -9,19 +9,18 @@ import java.sql.SQLException;
 
 public class LutadorDAO {
 
-    public boolean inserir(Lutador lutador, int idRound){
+    public boolean inserir(Lutador lutador){
 
         int valor = 0;
         try{
             Connection conexao = new Conexao().getConexao();
 
-            PreparedStatement result = conexao.prepareStatement("insert into Lutador(nome,categoria,pais,sexo,Round_idRound) values (?,?,?,?,?);");
+            PreparedStatement result = conexao.prepareStatement("insert ignore into Lutador(nome,categoria,pais,sexo) values (?,?,?,?);");
 
             result.setString(1, lutador.getNome());
             result.setString(2, lutador.getCategoria());
             result.setString(3, lutador.getPais());
             result.setString(4, lutador.getSexo());
-            result.setInt(5, idRound);
 
 
             valor = result.executeUpdate();
@@ -41,7 +40,7 @@ public class LutadorDAO {
         try{
             Connection conexao = new Conexao().getConexao();
             PreparedStatement result=
-                    conexao.prepareStatement("DELETE FROM Round WHERE nome = ?;");
+                    conexao.prepareStatement("DELETE FROM Lutador WHERE nome = ?;");
 
             result.setString(1,lutador.getNome());
             result.executeUpdate();
