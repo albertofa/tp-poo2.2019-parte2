@@ -18,11 +18,8 @@ public class LeitorArquivo {
     //Esse metodo recebe um objeto do tipo Round, calcula seus resultados e o insere no banco
     public void inserirResultadosBanco(Round round, int anoLiga,int anoLuta){
 
-        System.out.println("Teste: "+round.getPontosLutador1()+"-"+round.getIdRound()+"-"+anoLiga+"-"+anoLuta+"-"+round.getlutador1().getNome());
         round.getRoundResult();
-        System.out.println("Inserindo lutador1: "+round.getPontosLutador1()+"-"+round.getIdRound()+"-"+anoLiga+"-"+anoLuta+"-"+round.getlutador1().getNome());
         PontosRoundDAO.inserir(round.getPontosLutador1(),round.getIdRound(),anoLiga,anoLuta,round.getlutador1().getNome());
-        System.out.println("Inserindo lutador2: "+round.getPontosLutador2()+"-"+round.getIdRound()+"-"+anoLiga+"-"+anoLuta+"-"+round.getlutador2().getNome());
         PontosRoundDAO.inserir(round.getPontosLutador2(),round.getIdRound(),anoLiga,anoLuta,round.getlutador2().getNome());
 
     }

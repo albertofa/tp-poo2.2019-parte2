@@ -8,11 +8,13 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="7552e" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="7552e" class="javax.swing.JComboBox" binding="arquivoListBox">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <editable value="false"/>
+        </properties>
       </component>
       <component id="21d03" class="javax.swing.JButton" binding="enviarButton" default-binding="true">
         <constraints>
@@ -48,13 +50,13 @@
           <text value="Selecione o relatorio a ser emitido:"/>
         </properties>
       </component>
-      <component id="b870" class="javax.swing.JComboBox" default-binding="true">
+      <component id="b870" class="javax.swing.JComboBox" binding="relatoriosListBox">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
-      <component id="3c26d" class="javax.swing.JButton" default-binding="true">
+      <component id="3c26d" class="javax.swing.JButton" binding="EmitirButton">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -70,12 +72,12 @@
         </constraints>
         <properties/>
       </component>
-      <component id="a48b2" class="javax.swing.JLabel">
+      <component id="a48b2" class="javax.swing.JLabel" binding="fieldLogs">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
     </children>

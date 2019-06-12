@@ -5,14 +5,13 @@ import java.util.ArrayList;
 public class Luta {
 
     private int idLuta;
-    public ArrayList<Round> rounds = new ArrayList<Round>();
+    private ArrayList<Round> rounds = new ArrayList<Round>();
 
-    public Lutador getLutador1(){
-        return rounds.get(0).getlutador1();
-    }
+
     public Round getRound(int index){
         return rounds.get(index);
     }
+
     public void addRound(Round round){
         rounds.add(round);
     }
