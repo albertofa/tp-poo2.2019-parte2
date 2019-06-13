@@ -1,4 +1,4 @@
-package src.negocio;
+package src.negocio.liga;
 
 import java.util.ArrayList;
 

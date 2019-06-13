@@ -1,6 +1,6 @@
-package src.negocio;
+package src.negocio.lutador;
 
-import src.negocio.modalidade.*;
+import src.negocio.lutador.modalidade.*;
 
 import java.util.ArrayList;
 

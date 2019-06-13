@@ -1,4 +1,4 @@
-package src.negocio.modalidade;
+package src.negocio.lutador.modalidade;
 
 public class Karate extends Modalidade{
 

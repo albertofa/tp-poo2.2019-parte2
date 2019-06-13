@@ -1,10 +1,9 @@
-package src.negocio.relatorios;
+package src.negocio.bd;
 
 /**
  * Contem os atributos necessarios para criar um ResumoRound que irá ser utilizado na ViewResumoRounds
  */
 public class ResumoRound {
-
 
     private String nome;
     private int pontos;
@@ -12,6 +11,7 @@ public class ResumoRound {
     private int anoLiga;
 
 
+    //Getters e Setters
     public String getNome() {
         return nome;
     }

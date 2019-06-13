@@ -1,12 +1,13 @@
 package src.apresentacao;
 
-import src.negocio.LeitorArquivo;
-import src.negocio.LinkBancoDados;
+import src.negocio.bd.LeitorArquivo;
+import src.negocio.bd.LinkBancoDados;
 import src.persistencia.views.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -30,7 +31,7 @@ public class TelaPrincipalGUI {
      */
     public TelaPrincipalGUI(){
 
-        ArrayList<String> lista = TelaPrincipal.listarArquivos();
+        ArrayList<String> lista = listarArquivos();
         for (int i = 0;i<lista.size();i++){
             arquivoListBox.addItem(lista.get(i));
         }
@@ -40,6 +41,7 @@ public class TelaPrincipalGUI {
         relatoriosListBox.addItem("Número de vitórias por jogador");
         relatoriosListBox.addItem("Maior vencedor por categoria");
         relatoriosListBox.addItem("Número de lutas computadas no total");
+        relatoriosListBox.addItem("Todos lutadores Vencedores por categoria");
 
 
         enviarButton.addActionListener(new EnviarBancoButtonAction());
@@ -86,8 +88,31 @@ public class TelaPrincipalGUI {
                 textPane1.setText(ViewVencedorCategoriaDAO.selecionarView());
             }else if("Número de lutas computadas no total".equals(relatoriosListBox.getSelectedItem())){
                 textPane1.setText(ViewTotalLutasDAO.selecionarView());
+            }else if("Todos lutadores Vencedores por categoria".equals(relatoriosListBox.getSelectedItem())){
+                textPane1.setText(ViewLutadoresVencedoresAllDAO.selecionarView());
             }
         }
+
+    }
+
+    /**
+     * Metodo retorna todos os arquivos dentro de um diretorio
+     * @return Retorna uma ArrayList do tipo String
+     */
+    public ArrayList<String> listarArquivos(){
+
+        File folder = new File("ligas/");
+        File[] listaDeArquivos = folder.listFiles();
+        ArrayList<String> lista = new ArrayList<String>();
+
+        for (int i = 0; i < listaDeArquivos.length; i++) {
+            if (listaDeArquivos[i].isFile()) {
+                lista.add("ligas/"+listaDeArquivos[i].getName());
+            }
+
+        }
+
+        return lista;
 
     }
 

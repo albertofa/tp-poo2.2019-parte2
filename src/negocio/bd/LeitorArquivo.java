@@ -1,6 +1,11 @@
-package src.negocio;
+package src.negocio.bd;
 
-import src.persistencia.*;
+import src.negocio.liga.Liga;
+import src.negocio.liga.Luta;
+import src.negocio.liga.Round;
+import src.negocio.lutador.Acao;
+import src.negocio.lutador.Lutador;
+import src.persistencia.tabelas.LutaDAO;
 
 import java.io.*;
 
@@ -53,7 +58,6 @@ public class LeitorArquivo {
                 LutaDAO.inserir(luta,liga.getAnoLiga());
                 controle = Integer.parseInt(splitted[2]);
             }
-
 
             round = new Round();
             round.setIdRound(Integer.parseInt(splitted[1]));

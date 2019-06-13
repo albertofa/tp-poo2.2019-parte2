@@ -1,6 +1,7 @@
-package src.persistencia;
+package src.persistencia.tabelas;
 
-import src.negocio.modalidade.Modalidade;
+import src.negocio.lutador.modalidade.Modalidade;
+import src.persistencia.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

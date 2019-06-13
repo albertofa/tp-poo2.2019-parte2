@@ -1,7 +1,8 @@
-package src.negocio;
+package src.negocio.bd;
 
-import src.negocio.relatorios.ResumoRound;
-import src.persistencia.*;
+import src.negocio.liga.Liga;
+import src.negocio.liga.Round;
+import src.persistencia.tabelas.*;
 import src.persistencia.views.ViewResumoRoundsDAO;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class LinkBancoDados {
      * @param anoLiga
      * @param anoLuta
      */
-    public void inserirResultadosBanco(Round round, int anoLiga,int anoLuta){
+    public void inserirResultadosBanco(Round round, int anoLiga, int anoLuta){
 
         round.getRoundResult();
         PontosRoundDAO.inserir(round.getPontosLutador1(),round.getIdRound(),anoLiga,anoLuta,round.getlutador1().getNome());

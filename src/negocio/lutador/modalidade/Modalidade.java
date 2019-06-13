@@ -1,4 +1,4 @@
-package src.negocio.modalidade;
+package src.negocio.lutador.modalidade;
 
 public abstract class Modalidade {
 

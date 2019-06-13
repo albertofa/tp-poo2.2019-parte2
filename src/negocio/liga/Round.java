@@ -1,7 +1,11 @@
-package src.negocio;
+package src.negocio.liga;
 
-/* Classe que representa um embate entre 2 lutadores, em relação ao
-   arquivo .txt de ligas, cada instancia do objeto Round representa uma linha */
+import src.negocio.lutador.Lutador;
+
+/**
+ * Classe que representa um embate entre 2 lutadores, em relação ao
+ * arquivo .txt de ligas, cada instancia do objeto Round representa uma linha
+ */
 public class Round {
 
     private int idRound;

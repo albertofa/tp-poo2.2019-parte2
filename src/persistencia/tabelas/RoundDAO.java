@@ -1,6 +1,7 @@
-package src.persistencia;
+package src.persistencia.tabelas;
 
-import src.negocio.Round;
+import src.negocio.liga.Round;
+import src.persistencia.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

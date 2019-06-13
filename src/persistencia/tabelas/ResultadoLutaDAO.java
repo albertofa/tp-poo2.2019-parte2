@@ -1,4 +1,6 @@
-package src.persistencia;
+package src.persistencia.tabelas;
+
+import src.persistencia.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

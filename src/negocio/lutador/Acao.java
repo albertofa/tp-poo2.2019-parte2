@@ -1,4 +1,4 @@
-package src.negocio;
+package src.negocio.lutador;
 
 /**
  * Contem todas as acoes, que sao um atributo de um Lutador

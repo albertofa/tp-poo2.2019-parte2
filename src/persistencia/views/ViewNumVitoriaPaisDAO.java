@@ -25,7 +25,7 @@ public class ViewNumVitoriaPaisDAO {
 
             while (result.next()) {
                 string = string + "\nNumero Vitorias: "+result.getInt("count(nome)");
-                string = string + " | idLuta: "+result.getString("pais");
+                string = string + " | Pais: "+result.getString("pais");
             }
             conexao.close();
         }catch( SQLException e){

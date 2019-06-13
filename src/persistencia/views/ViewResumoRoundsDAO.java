@@ -1,6 +1,6 @@
 package src.persistencia.views;
 
-import src.negocio.relatorios.ResumoRound;
+import src.negocio.bd.ResumoRound;
 import src.persistencia.Conexao;
 
 import java.sql.Connection;
