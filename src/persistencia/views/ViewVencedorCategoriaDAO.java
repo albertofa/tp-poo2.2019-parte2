@@ -1,13 +1,12 @@
-package src.persistencia;
+package src.persistencia.views;
 
-import src.negocio.relatorios.ResumoRound;
+import src.persistencia.Conexao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-public class ViewVencedoresLutasDAO {
+public class ViewVencedorCategoriaDAO {
 
     public static String selecionarView(){
         String string = "";
@@ -17,16 +16,16 @@ public class ViewVencedoresLutasDAO {
 
             ResultSet result = null;
             try {
-                result = conexao.prepareStatement("select * from ViewVencedoresLutas;").executeQuery();
+                result = conexao.prepareStatement("select * from ViewVencedorCategoria;").executeQuery();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
 
 
             while (result.next()) {
-                string = string + "\nVencedor: "+result.getString("Lutador_nomeVencedor");
-                string = string + " | idLuta: "+result.getInt("Luta_idLuta");
-                string = string + " | Ano Liga: "+result.getInt("Luta_anoLiga");
+                string = string + "\nNome: "+result.getString("Lutador_nomeVencedor");
+                string = string + " | Categoria: "+result.getString("categoria");
+                string = string + " | Numero vitorias: "+result.getInt("count(Lutador_nomeVencedor)");
             }
             conexao.close();
         }catch( SQLException e){
@@ -35,5 +34,4 @@ public class ViewVencedoresLutasDAO {
 
         return string;
     }
-
 }

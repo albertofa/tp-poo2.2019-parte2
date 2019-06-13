@@ -1,5 +1,8 @@
 package src.negocio;
 
+/**
+ * Contem todas as acoes, que sao um atributo de um Lutador
+ */
 public class Acao {
 
     private int ataque;
@@ -8,10 +11,21 @@ public class Acao {
 	private int poder;
 	private int defesa;
 
+    /**
+     * Construtor
+     */
 	public Acao(){
 
 	}
 
+    /**
+     * Construtor
+     * @param ataque
+     * @param soco
+     * @param chute
+     * @param poder
+     * @param defesa
+     */
     public Acao(int ataque, int soco, int chute, int poder, int defesa){
         this.ataque = ataque;
         this.soco = soco;
@@ -20,6 +34,7 @@ public class Acao {
         this.defesa = defesa;
     }
 
+    //Getters e Setters
     public int getAtaque() {
         return ataque;
     }

@@ -16,20 +16,16 @@ public class Round {
         pontosLutador2 = 0;
     }
 
-    //Retorna o Lutador que ficou com mais pontos no Round
-    public Lutador getRoundResult(){
+    /**
+     * Atribui pontos ao devidos lutadores de acordo com suas acoes
+     */
+    public void getRoundResult(){
         if(lutador1.getAcoes().getPoder() == 1 || lutador2.getAcoes().getPoder() == 1){
             setPontosUsoPoder();
         }else if(lutador1.getAcoes().getDefesa() == 1 || lutador2.getAcoes().getDefesa() == 1){
             setPontosUsoDefesa();
         }else{
             setPontosUsoAtaque();
-        }
-
-        if(pontosLutador1 > pontosLutador2){
-            return lutador1;
-        }else{
-            return lutador2;
         }
     }
 

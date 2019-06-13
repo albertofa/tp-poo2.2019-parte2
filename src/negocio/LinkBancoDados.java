@@ -2,11 +2,21 @@ package src.negocio;
 
 import src.negocio.relatorios.ResumoRound;
 import src.persistencia.*;
+import src.persistencia.views.ViewResumoRoundsDAO;
 
 import java.util.ArrayList;
 
+/**
+ * Possui metodos que irão interagir com as classes DAO, criando uma maior camada de encapsulamento
+ */
 public class LinkBancoDados {
 
+    /**
+     * Irá inserir no banco de dados os resultados dos Rounds
+     * @param round
+     * @param anoLiga
+     * @param anoLuta
+     */
     public void inserirResultadosBanco(Round round, int anoLiga,int anoLuta){
 
         round.getRoundResult();
@@ -15,6 +25,13 @@ public class LinkBancoDados {
 
     }
 
+    /**
+     * Irá inserir no banco de dados os dados que compoem um round
+     *
+     * @param round
+     * @param anoLiga
+     * @param idLuta
+     */
     public void inserirRoundBanco(Round round, int anoLiga, int idLuta){
 
         RoundDAO.inserir(round,idLuta,anoLiga);
@@ -28,15 +45,24 @@ public class LinkBancoDados {
         ModalidadeDAO.inserir(round.getlutador2().getModalidade(),round.getIdRound(),round.getlutador2().getNome(),idLuta,anoLiga);
     }
 
+    /**
+     * Irá inserir no banco de dados os dados que compoem uma liga
+     * @param liga
+     */
     public void inserirLigaBanco(Liga liga){
         LigaDAO.inserir(liga);
     }
 
+    /**
+     * Irá inserir no banco de dados os resultados das lutas,
+     * a partir dos resultados dos rounds ja disponiveis no bando de dados
+     */
     public void inserirResultadoLutaBanco() {
 
         ArrayList<ResumoRound> resumoRounds = ViewResumoRoundsDAO.selecionarView();
 
 
+        //Todo seprar if em outros metodos
         for (int i = 0; i < resumoRounds.size(); i++) {
             System.out.println(resumoRounds.get(i).getAnoLiga() + "-" + resumoRounds.get(i).getIdLuta() + "-" + resumoRounds.get(i).getNome());
             for (int j = i + 1; j < resumoRounds.size(); j++) {
@@ -53,9 +79,6 @@ public class LinkBancoDados {
             }
         }
     }
-
-
-
 
 
 }

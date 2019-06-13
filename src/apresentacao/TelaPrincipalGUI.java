@@ -2,9 +2,7 @@ package src.apresentacao;
 
 import src.negocio.LeitorArquivo;
 import src.negocio.LinkBancoDados;
-import src.persistencia.ViewNumVitoriaPaisDAO;
-import src.persistencia.ViewResumoRoundsDAO;
-import src.persistencia.ViewVencedoresLutasDAO;
+import src.persistencia.views.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +10,10 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Possui todos os componententes da interface grafica
+ * e metodos para interagis com esses componentes
+ */
 public class TelaPrincipalGUI {
 
     protected JPanel telaPrincipalView;
@@ -23,6 +25,9 @@ public class TelaPrincipalGUI {
     private JButton EmitirButton;
     LinkBancoDados link = new LinkBancoDados();
 
+    /**
+     * Construtor
+     */
     public TelaPrincipalGUI(){
 
         ArrayList<String> lista = TelaPrincipal.listarArquivos();
@@ -32,6 +37,9 @@ public class TelaPrincipalGUI {
         relatoriosListBox.addItem("Lutadores vencedores de cada luta");
         relatoriosListBox.addItem("Pontos ganhos para cada jogador em cada luta");
         relatoriosListBox.addItem("Número de vitórias por país");
+        relatoriosListBox.addItem("Número de vitórias por jogador");
+        relatoriosListBox.addItem("Maior vencedor por categoria");
+        relatoriosListBox.addItem("Número de lutas computadas no total");
 
 
         enviarButton.addActionListener(new EnviarBancoButtonAction());
@@ -39,6 +47,9 @@ public class TelaPrincipalGUI {
     }
 
 
+    /**
+     * Metodo que é acionado quando o componente EnviarBancoButton possui uma interação
+     */
     public class EnviarBancoButtonAction implements ActionListener{
 
         LeitorArquivo leitor = new LeitorArquivo();
@@ -54,6 +65,9 @@ public class TelaPrincipalGUI {
 
     }
 
+    /**
+     * Metodo que é acionado quando o componente EmitirButton possui uma interação
+     */
     public class EmitirButtonAction implements ActionListener{
 
         @Override
@@ -66,6 +80,12 @@ public class TelaPrincipalGUI {
                 textPane1.setText(ViewResumoRoundsDAO.selecionarViewString());
             }else if("Número de vitórias por país".equals(relatoriosListBox.getSelectedItem())){
                 textPane1.setText(ViewNumVitoriaPaisDAO.selecionarView());
+            }else if("Número de vitórias por jogador".equals(relatoriosListBox.getSelectedItem())){
+                textPane1.setText(ViewVitoriasJogadorDAO.selecionarView());
+            }else if("Maior vencedor por categoria".equals(relatoriosListBox.getSelectedItem())){
+                textPane1.setText(ViewVencedorCategoriaDAO.selecionarView());
+            }else if("Número de lutas computadas no total".equals(relatoriosListBox.getSelectedItem())){
+                textPane1.setText(ViewTotalLutasDAO.selecionarView());
             }
         }
 

@@ -1,11 +1,12 @@
-package src.persistencia;
+package src.persistencia.views;
+
+import src.persistencia.Conexao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-public class ViewNumVitoriaPaisDAO {
+public class ViewTotalLutasDAO {
 
     public static String selecionarView(){
         String string = "";
@@ -15,15 +16,14 @@ public class ViewNumVitoriaPaisDAO {
 
             ResultSet result = null;
             try {
-                result = conexao.prepareStatement("select * from ViewNumVitoriaPais;").executeQuery();
+                result = conexao.prepareStatement("select * from ViewTotalLutas;").executeQuery();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
 
 
             while (result.next()) {
-                string = string + "\nNumero Vitorias: "+result.getInt("count(nome)");
-                string = string + " | idLuta: "+result.getString("pais");
+                string = string + "\nTotal de lutas: "+result.getString("count(*)");
             }
             conexao.close();
         }catch( SQLException e){

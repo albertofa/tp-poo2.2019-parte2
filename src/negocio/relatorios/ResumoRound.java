@@ -1,5 +1,8 @@
 package src.negocio.relatorios;
 
+/**
+ * Contem os atributos necessarios para criar um ResumoRound que irá ser utilizado na ViewResumoRounds
+ */
 public class ResumoRound {
 
 

@@ -4,11 +4,14 @@ import src.negocio.modalidade.*;
 
 import java.util.ArrayList;
 
-/*
- * Classe base para um objeto que irá interagir com o jogo
+/**
+ * Classe lutador que contem seus atributos,acoes e poder(modalidade)
+ *
+ * @author José Alberto Fernandes
  */
 public class Lutador{
 
+    //Irá conter todas as classes que herdam Modalidade
     private ArrayList<Modalidade> modalidadesRegistradas;
 
     private String nome;
@@ -18,7 +21,11 @@ public class Lutador{
     private Acao acoes;
     private Modalidade modalidade;
 
+    /**
+     * Construtor
+     */
     public Lutador() {
+        //Todas as tipos de modalidades devem ser adicionadas nesste inicializador
         modalidadesRegistradas= new ArrayList<Modalidade>(){
             {
                 add(new Boxe());
@@ -30,6 +37,15 @@ public class Lutador{
         };
     }
 
+    /**
+     * Construtor
+     * @param nome
+     * @param categoria
+     * @param pais
+     * @param sexo
+     * @param acoes
+     * @param modalidade
+     */
     public Lutador(String nome, String categoria, String pais, String sexo, Acao acoes, int modalidade){
         modalidadesRegistradas= new ArrayList<Modalidade>(){
             {
@@ -51,6 +67,7 @@ public class Lutador{
     }
 
 
+    //Getters and Setters
     public void setModalideByForca(int forca){
         modalidade = modalidadesRegistradas.get(forca);
     }

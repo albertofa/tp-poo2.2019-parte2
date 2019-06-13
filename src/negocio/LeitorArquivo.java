@@ -4,17 +4,28 @@ import src.persistencia.*;
 
 import java.io.*;
 
+/**
+ * Está classe possui os metodos necessarios para retirar dados de um arquivo
+ */
 public class LeitorArquivo {
-
 
     private File file;
 
+    /**
+     * Retorna um int representando o ano da liga, a partir de um caminho do arquivo
+     * @param path Caminho do arquivo
+     * @return int representando o ano
+     */
     private int getAnobyPath(String path){
 
         return Integer.parseInt(path.substring(10,14));
     }
 
-    //Esse metodo recebe uma String com o caminho do  arquivo contendo a liga e insere seu conteudo no banco
+    /**
+     * Insere todos os dados contidos no arquivo no banco de dados
+     * @param path O caminho do arquivo
+     * @throws IOException
+     */
     public void inserirArquivoBanco(String path) throws IOException {
 
         LinkBancoDados link = new LinkBancoDados();
@@ -29,17 +40,20 @@ public class LeitorArquivo {
         Acao acoes;
         Lutador lutador;
 
+        //Cria a liga no banco de dados
         link.inserirLigaBanco(liga);
         String linha;
         while ((linha = reader.readLine()) != null) {
             String[] splitted = linha.split(";");
 
+            //Identifica quando uma nova luta é iniciada
             if(Integer.parseInt(splitted[2]) != controle){
 
                 luta.setIdLuta(Integer.parseInt(splitted[2]));
                 LutaDAO.inserir(luta,liga.getAnoLiga());
                 controle = Integer.parseInt(splitted[2]);
             }
+
 
             round = new Round();
             round.setIdRound(Integer.parseInt(splitted[1]));
@@ -52,6 +66,7 @@ public class LeitorArquivo {
             lutador = new Lutador(splitted[13],splitted[14],splitted[15],splitted[16],acoes,Integer.parseInt(splitted[22]));
             round.setLutador2(lutador);
 
+            //insere o Round e seu resultado no bando de dados
             link.inserirRoundBanco(round,liga.getAnoLiga(),luta.getIdLuta());
             link.inserirResultadosBanco(round,liga.getAnoLiga(),luta.getIdLuta());
         }
