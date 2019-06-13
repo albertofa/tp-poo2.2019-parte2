@@ -2,7 +2,6 @@ package src.apresentacao;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class TelaPrincipal{
 

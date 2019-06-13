@@ -1,6 +1,6 @@
 package src.negocio.relatorios;
 
-public class ResumoLuta {
+public class ResumoRound {
 
 
     private String nome;

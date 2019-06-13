@@ -1,7 +1,10 @@
 package src.apresentacao;
 
 import src.negocio.LeitorArquivo;
-import src.negocio.relatorios.ResultadoLuta;
+import src.negocio.LinkBancoDados;
+import src.persistencia.ViewNumVitoriaPaisDAO;
+import src.persistencia.ViewResumoRoundsDAO;
+import src.persistencia.ViewVencedoresLutasDAO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,6 +21,7 @@ public class TelaPrincipalGUI {
     private JLabel fieldLogs;
     private JComboBox relatoriosListBox;
     private JButton EmitirButton;
+    LinkBancoDados link = new LinkBancoDados();
 
     public TelaPrincipalGUI(){
 
@@ -26,21 +30,42 @@ public class TelaPrincipalGUI {
             arquivoListBox.addItem(lista.get(i));
         }
         relatoriosListBox.addItem("Lutadores vencedores de cada luta");
-        enviarButton.addActionListener(new EnviarBancoButton());
+        relatoriosListBox.addItem("Pontos ganhos para cada jogador em cada luta");
+        relatoriosListBox.addItem("Número de vitórias por país");
+
+
+        enviarButton.addActionListener(new EnviarBancoButtonAction());
+        EmitirButton.addActionListener(new EmitirButtonAction());
     }
 
-    public class EnviarBancoButton implements ActionListener{
+
+    public class EnviarBancoButtonAction implements ActionListener{
 
         LeitorArquivo leitor = new LeitorArquivo();
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                leitor.inserirLigaBanco(String.valueOf(arquivoListBox.getSelectedItem()));
-                ResultadoLuta r = new ResultadoLuta();
-                r.inserirVencedoresLutasBanco();
-                fieldLogs.setText("Arquivo "+String.valueOf(arquivoListBox.getSelectedItem())+"inserido no banco");
+                leitor.inserirArquivoBanco(String.valueOf(arquivoListBox.getSelectedItem()));
+                fieldLogs.setText("Arquivo "+String.valueOf(arquivoListBox.getSelectedItem())+" inserido no banco");
             } catch (IOException ex) {
                 ex.printStackTrace();
+            }
+        }
+
+    }
+
+    public class EmitirButtonAction implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if("Lutadores vencedores de cada luta".equals(relatoriosListBox.getSelectedItem())){
+                link.inserirResultadoLutaBanco();
+                textPane1.setText(ViewVencedoresLutasDAO.selecionarView());
+
+            }else if("Pontos ganhos para cada jogador em cada luta".equals(relatoriosListBox.getSelectedItem())){
+                textPane1.setText(ViewResumoRoundsDAO.selecionarViewString());
+            }else if("Número de vitórias por país".equals(relatoriosListBox.getSelectedItem())){
+                textPane1.setText(ViewNumVitoriaPaisDAO.selecionarView());
             }
         }
 
